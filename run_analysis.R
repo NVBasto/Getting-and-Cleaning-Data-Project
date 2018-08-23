@@ -112,5 +112,6 @@ tidySet <- tidySet[order(tidySet$subjectID, tidySet$activity),]
 write.table(tidySet, "Project.txt",row.names=FALSE)
 
 # Produce codebook
-library(knitr)
-knit2html("codebook.Rmd")
+library(dataMaid)
+makeCodebook(data = tidySet, replace = TRUE)
+file.rename("codebook_tidySet.Rmd", "CodeBook.Rmd")
